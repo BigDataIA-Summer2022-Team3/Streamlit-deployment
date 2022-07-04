@@ -4,8 +4,10 @@ from pathlib import Path
 import streamlit_authenticator as stauth
 import pymysql
 import requests
+import os
 
-from dbconfig import funct
+# from dbconfig import funct
+Host, User, Password = os.environ["Host"] , os.environ["User"], os.environ["Password"]
 
 st.markdown('# Login Page')
 #need pymysql
@@ -52,7 +54,7 @@ if st.session_state["authentication_status"]:
     authenticator.logout('Logout', 'sidebar')
     st.markdown(f'# Welcome *{st.session_state["name"]}*')
 
-    Host, User, Password = funct()
+    # Host, User, Password = funct()
     con = pymysql.connect(host = Host, user = User, password = Password, database = 'lemon', charset = "utf8")
     c = con.cursor()
     c.execute('select * from user_table where username = "%s"' % st.session_state.username)

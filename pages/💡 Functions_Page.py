@@ -177,16 +177,14 @@ if st.session_state["authentication_status"]:
         fun7val1 = st.sidebar.number_input("number of image [Pick a number between (1,10)]",1 ,10)
 
         if st.sidebar.button("Select"):
-            # url = f"https://damg7245-zhijie.herokuapp.com/img/airplanes/truncated?number_of_image={fun7val1}"
-            url = f"https://127.0.0.1:5001/img/airplanes/truncated?number_of_image={fun7val1}"
+            url = f"https://damg7245-zhijie.herokuapp.com/img/airplanes/truncated?number_of_image={fun7val1}"
             header = {"Authorization": "Bearer "+ token, "accept": "application/json"}
             res = requests.get(url=url, headers = header)
             meta = res.json()
             
             for i in range(len(meta)):
                 i_id = meta[str(i)]["img_id"]
-                # img_url = f"http://damg7245-zhijie.herokuapp.com/s3/img?image_id={i_id}"
-                img_url = f"http://127.0.0.1:5001/s3/img?image_id={i_id}"
+                img_url = f"http://damg7245-zhijie.herokuapp.com/s3/img?image_id={i_id}"
                 response = requests.get(url = img_url, headers = header)
                 i = Image.open(io.BytesIO(response.content))
                 st.image(i)

@@ -1,0 +1,329 @@
+<html>
+
+    <h2>
+        API 1: Search aircraft by Location
+    </h2>
+    <body>
+        User need to enter x_loc, y_loc, and image_id of picture.<br/>
+        System will tell user in the location has aircraft, or not.<br/>
+        <p>
+            If system find the aircraft in the location, it will tell user the whole coordinate of the aircraft.<br/>
+            If system didn't find the aircraft in the location, it will tell user not found and let user try again.
+        </p>
+    </body>
+
+    <p>Example 1:</p>
+    <table border="1">
+        <tr>
+            <th>Correct_Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>x_loc = 1600</td>
+            <td>Xmin = 1555</td>
+        </tr>
+        <tr>
+            <td>y_loc = 500</td>
+            <td>Ymin = 479</td>
+        </tr>
+        <tr>
+            <td>image_id = 5c9e817a-dc4b-42ab-952c-3128e2de12e8.jpg</td>
+            <td>Xmax = 1758</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Ymax = 651</td>
+        </tr>
+    </table>
+
+    <p>Example 2:</p>
+    <table border="1">
+        <tr>
+            <th>Incorrect_Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>x_loc = 30000000</td>
+            <td>"Input X and Y should within (0,2560)"</td>
+        </tr>
+        <tr>
+            <td>y_loc = 500</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>image_id = 5c9e817a-dc4b-42ab-952c-3128e2de12e8.jpg</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <p>Example 3:</p>
+    <table border="1">
+        <tr>
+            <th>Incorrect_Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>x_loc = 1600</td>
+            <td>"No image found related to the image_id. Try effective image_id"</td>
+        </tr>
+        <tr>
+            <td>y_loc = 500</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>image_id = wrong_id</td>
+            <td></td>
+        </tr>
+    </table>
+
+
+    <h2>
+        API 2: Get all airplanes coordinate in picture
+    </h2>
+    <body>
+        User need to enter an image_id of picture<br/>
+        <p>
+            If system find the picture, it will tell user all coordinates of aircraft in the picture.<br/>
+            If system didn't find the picture, it will tell user not found and let user try again.
+        </p>
+    </body>
+    
+    <p>Example 1:</p>
+    <table border="1">
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>image_id = 5c9e817a-dc4b-42ab-952c-3128e2de12e8.jpg</td>
+            <td>Xmin = 1950</td>
+            <td>Xmin = 1990</td>
+            <td>Xmin = 1989</td>
+            <td>...</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Ymin = 280</td>
+            <td>Ymin = 472</td>
+            <td>Ymin = 722</td>
+            <td>...</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Xmax = 2139</td>
+            <td>Xmax = 2182</td>
+            <td>Xmax = 2187</td>
+            <td>...</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Ymax = 436</td>
+            <td>Ymax = 685</td>
+            <td>Ymax = 894</td>
+            <td>...</td>
+        </tr>
+    </table>
+
+    <p>Example 2:</p>
+    <table border="1">
+        <tr>
+            <th>Incorrect_Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>image_id = wrong_id</td>
+            <td>"No image found related to the image_id. Try effective image_id"</td>
+        </tr>
+    </table>
+
+
+    <h2>
+        API 3: Display the top big or small aircraft in one picture
+    </h2>
+    <body>
+        User need to choose big or small, then enter an image_id of picture and how many aircraft needed.<br/>
+        <p>
+            If system find the picture, it will tell user the top numbers biggest/smallest aircraft in the picture.<br/>
+            If system didn't find the picture, it will tell user not found and let user try again.
+        </p>
+    </body>
+
+    <p>Example 1:</p>
+    <table border="1">
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>image_id = 5c9e817a-dc4b-42ab-952c-3128e2de12e8.jpg</td>
+            <td>Xmin = 2067</td>
+            <td>Xmin = 979</td>
+            <td>Xmin = 2079</td>
+        </tr>
+        <tr>
+            <td>limit_of_number = 3</td>
+            <td>Ymin = 1344</td>
+            <td>Ymin = 1641</td>
+            <td>Ymin = 1574</td>
+        </tr>
+        <tr>
+            <td>choose big or small = Big</td>
+            <td>Xmax = 2269</td>
+            <td>Xmax = 1192</td>
+            <td>Xmax = 2287</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Ymax = 1568</td>
+            <td>Ymax = 1853</td>
+            <td>Ymax = 1789</td>
+        </tr>
+    </table>
+
+    <p>Example 2:</p>
+    <table border="1">
+        <tr>
+            <th>Incorrect_Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>image_id = wrong_id</td>
+            <td>"No image found related to the image_id. Try effective image_id"</td>
+        </tr>
+    </table>
+
+
+    <h2>
+        API 4: Count airplanes in picture
+    </h2>
+    <body>
+        User need to enter an image_id of picture.<br/>
+        <p>
+            If system find the picture, it will tell user how many airplanes in the picture.<br/>
+            If system didn't find the picture, it will tell user not found and let user try again.
+        </p>
+    </body>
+
+    <p>Example 1:</p>
+    <table border="1">
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>image_id = 5c9e817a-dc4b-42ab-952c-3128e2de12e8.jpg</td>
+            <td>number of airplanes = 30</td>
+        </tr>
+    </table>
+
+    <p>Example 2:</p>
+    <table border="1">
+        <tr>
+            <th>Incorrect_Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>image_id = wrong_id</td>
+            <td>"No image found related to the image_id. Try effective image_id"</td>
+        </tr>
+    </table>
+
+
+    <h2>
+        API 5: Search for images by numbers of airplanes
+    </h2>
+    <body>
+        User need to enter two number, one is how many airplanes they want to find, another one is how many pictures they want.<br/>
+        <p>
+            If system find pictures, it will give user those picture system found.<br/>
+            If system didn't find pictures, it will tell user not found and let user try again.
+        </p>
+    </body>
+
+    <p>Example:</p>
+    <table border="1">
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>contain_aircraft_number = 32</td>
+            <td>image_id = 014de911-7810-4f7d-8967-3e5402209f4a.jpg</td>
+        </tr>
+        <tr>
+            <td>limit_of_image = 5</td>
+            <td>image_id = 29324dbf-6043-4521-bd83-44a97ffc5281.jpg</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>image_id = 70332141-fcd3-4e2e-89c7-d50cbc30c25f.jpg</td>
+        </tr>
+    </table>
+
+    
+    <h2>
+        API 6: Get pictures that contains top number of airplanes
+    </h2>
+    <body>
+        User need to enter how many pictures they want.<br/>
+        <p>
+            If system find pictures, it will give user those picture system found.<br/>
+            If system didn't find pictures, it will tell user not found and let user try again.
+        </p>
+    </body>
+
+    <p>Example:</p>
+    <table border="1">
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>number_of_image = 3 </td>
+            <td>image_id = d9399a45-6745-4e59-8903-90640b2ddf9f.jpg</td>
+            <td>num_of_airplanes = 92</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>image_id = cbd51501-ed0f-411c-b472-df4357cca40c.jpg</td>
+            <td>num_of_airplanes = 88</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>image_id = 56e2d3d3-6b16-401f-a300-847272373df5.jpg</td>
+            <td>num_of_airplanes = 71</td>
+        </tr>
+    </table>
+
+
+    <h2>
+        API 7: Get pictures that contains top number of truncated airplanes
+    </h2>
+    <body>
+        User need to enter how many pictures they want.<br/>
+        <p>
+            If system find pictures, it will give user those picture system found.<br/>
+            If system didn't find pictures, it will tell user not found and let user try again.
+        </p>
+    </body>
+
+    <p>Example:</p>
+    <table border="1">
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+        </tr>
+        <tr>
+            <td>number_of_image = 3 </td>
+            <td>image_id = af67041b-f363-47ae-8ddd-f652db3a6bab.jpg</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>image_id = 6627e7c7-2fdd-4f3c-965e-b4d73d0a4cc2.jpg</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>image_id = ad36e699-4a1f-4891-b579-6e9ac3e54235.jpg</td>
+        </tr>
+    </table>
+</html>
